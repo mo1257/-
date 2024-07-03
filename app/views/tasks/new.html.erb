@@ -1,5 +1,6 @@
+<%= render "shared/partial" %>
 <h3>ユーザー新規作成</h3>
-
+<%= render "shared/error", obj: @task %>
 <%= form_with model: @task do |f| %>
   <table>
     <tr>
@@ -29,8 +30,8 @@
   </table>
 
   <div>
-    <ul>
-      <li><%= f.submit "登録完了する"%></li>
+    <ul class="button-list">
+      <li><%= f.submit "登録完了"%></li>
       <li><%= link_to "予定一覧に戻る", :tasks %></li>
     </ul>
   </div>

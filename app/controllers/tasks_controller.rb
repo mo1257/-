@@ -1,14 +1,15 @@
 class TasksController < ApplicationController
   def index
     @tasks = Task.all
+    @schedule_total = @tasks.count 
   end
 
   def new
     @task = Task.new
-  end
+  end 
 
   def create
-    @task = Task.new(task_params)
+    @task = Task.new(params.require(:task).permit(:title, :start_date, :end_date, :is_all_day, :memo))
     if @task.save
       flash[:notice_create] = "スケジュールを登録しました"
       redirect_to :tasks
@@ -28,19 +29,18 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    if @task.update(task_params)
-      flash[:notice_update] = "スケジュールを更新しました"
+    if @task.update(params.require(:task).permit(:title, :start_date, :end_date, :is_all_day, :memo))
+      flash[:notice] = "ユーザーIDが「#{@task.id}」の情報を更新しました"
       redirect_to :tasks
     else
-      flash[:notice_no_update] = "スケジュールを更新できませんでした"
-      render "edit"
+      render "edit" 
     end
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    flash[:notice_destroy] = "スケジュールを削除しました"
+    flash[:notice] = "スケジュールを削除しました"
     redirect_to :tasks
   end
 

@@ -1,18 +1,20 @@
+
 <%= render "shared/partial" %>
-
-<%= link_to "一覧に戻る", :tasks %>
-
-<%= @task.title %>
+<%= link_to "予定一覧に戻る", :tasks %>
+<h3>ユーザー詳細</h3>
 <%= form_with model: @task do |f| %>
   <table>
     <tr>
+      <th>タイトル</th>
+      <td><%= @task.title %></td>
+    <tr>
       <th>開始日</th>
-      <td><%= l @task.start_date %></td>
+      <td><%= @task.start_date %></td>
     </tr>
 
     <tr>
       <th>終了日</th>
-      <td><%= l @task.end_date %></td>
+      <td><%= @task.end_date %></td>
     </tr>
 
     <tr>
@@ -24,6 +26,7 @@
       <th>スケジュールメモ</th>
       <td><%= @task.memo %></td>
     </tr>
-  </table>
 
+  </table>
+  <button type="submit"><%= link_to '編集', edit_task_path(@task) %></button>
 <% end %>

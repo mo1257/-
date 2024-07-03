@@ -4,20 +4,14 @@ header {
     margin-bottom: 30px;
     border-bottom: 7px solid orange;
   }
-  
-  footer{
-    width: 100%;
-    padding: 15px;
-    margin-top: 30px;
-    border-top: 7px solid orange;
-  }
-  
+
   .partial {
     color: white;
-    background-color: black;
+    background-color: #333333;
     text-align: center;
     padding: 1px;
   }
+  
 
   table th {
     padding: 10px 20px;
@@ -33,3 +27,15 @@ header {
     background-color: #ccf;
     padding: 5px;
   }
+
+  .button-list {
+    list-style-type: none; /* リストマーカーを削除 */
+    padding: 0; /* デフォルトのパディングを削除 */
+  }
+  
+  .button-list li {
+    display: inline; /* リストアイテムをインライン表示 */
+    margin-right: 10px; /* リストアイテム間にスペースを追加 */
+  }
+  
+  
