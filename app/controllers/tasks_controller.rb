@@ -12,7 +12,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     if @task.save
       flash[:notice_create] = "スケジュールを登録しました"
-      redirect_to posts_path(@task)
+      redirect_to :tasks
     else
       flash[:alert] = "スケジュールの登録に失敗しました"
       render "new"
