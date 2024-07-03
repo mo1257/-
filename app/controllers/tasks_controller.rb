@@ -14,7 +14,7 @@ class TasksController < ApplicationController
       flash[:notice_create] = "スケジュールを登録しました"
       redirect_to :tasks
     else
-      flash[:alert] = "スケジュールの登録に失敗しました"
+      flash[:notice_no_create] = "スケジュールの登録に失敗しました"
       render "new"
     end
   end
