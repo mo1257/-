@@ -3,11 +3,10 @@ class Task < ApplicationRecord
  validates :memo, length: { maximum: 500 }
  validates :start_date, presence: true
  validates :end_date, presence:true
+ validate :start_end_check
 
- def end_date_after_start_date
+ def start_end_check
   return if start_date.blank? || end_date.blank?
-  if end_date <= start_date
-    errors.add(:end_date, "は開始日より後の日付にしてください")
-  end
- end
+  errors.add(:end_date, "は開始日以降の日付で選択してください") if self.start_date > self.end_date
+end
 end
