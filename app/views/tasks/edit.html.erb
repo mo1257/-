@@ -1,6 +1,6 @@
 <%= render "shared/partial" %>
 <h3>予定の編集</h3>
-
+<%= render "shared/error", obj: @task %>
 <%= form_with model: @task do |f| %>
   <table>
     <tr>

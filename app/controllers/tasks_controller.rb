@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   end 
 
   def create
-    @task = Task.new(task_params)
+    @task = Task.new(params.require(:task).permit(:title, :start_date, :end_date, :is_all_day, :memo))
     if @task.save
       flash[:notice_create] = "スケジュールを登録しました"
       redirect_to :tasks
